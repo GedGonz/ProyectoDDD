@@ -6,6 +6,12 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using PracticaCodeFirst.Models;
+using PracticaCodeFirst.App_Start;
+using Autofac;
+using IoC;
+using Autofac.Integration.Mvc;
+using System.Reflection;
+using System.Web.Mvc;
 
 namespace PracticaCodeFirst
 {
@@ -63,6 +69,20 @@ namespace PracticaCodeFirst
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            //Mapping.InitialMapping();
+
+
+            var builder = new ContainerBuilder();
+
+            FabricaIoC.Contenedor(builder);
+
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+
+            IContainer Container = builder.Build();
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
+
         }
     }
 }

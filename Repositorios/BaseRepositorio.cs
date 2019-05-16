@@ -22,15 +22,13 @@ namespace Repositorios
             Tabla.Add(Entidad);
             return true;
         }
-
         public IEnumerable<T> Lista()
         {
             return Tabla.ToList();
         }
-
         public bool Update(T Entidad)
         {
-            Tabla.Add(Entidad);
+            Tabla.Attach(Entidad);
             contexto.Entry(Entidad).State = EntityState.Modified;
             return true;
         }

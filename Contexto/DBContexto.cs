@@ -14,7 +14,6 @@ namespace Contexto
         {
 
         }
-
         public DbSet<Persona> Persona { get; set; }
     }
 }

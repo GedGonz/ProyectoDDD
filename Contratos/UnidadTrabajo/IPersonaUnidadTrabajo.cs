@@ -9,6 +9,8 @@ namespace Contratos.UnidadTrabajo
     public interface IPersonaUnidadTrabajo
     {
         IPersonaRepositorio IPersonaRepositorio { get; }
-
+        void commit();
+        void RollBack();
+        void Disposable();
     }
 }

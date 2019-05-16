@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using EntidadesDTO;
 using ServicioDomini = Contratos.Servicio;
+using AutoMapper;
+using Entidades;
+
 namespace Manejador
 {
     public class PersonaServicio : IPersonaServicio
@@ -15,9 +18,31 @@ namespace Manejador
         {
             this.personaServicio = personaServicio;
         }
+
+        public bool Add(Personadto personadto)
+        {
+            var Persona=Mapper.Map<Personadto, Persona>(personadto);
+            return personaServicio.Add(Persona);
+            
+        }
+
         public List<Personadto> ListTopPersonas()
         {
-            return new List<Personadto>();//personaServicio.ListaTopPersona();
+            var ListaPersonas=personaServicio.ListaTopPersona();
+            var ListaPersonasDto=Mapper.Map<List<Persona>, List<Personadto>>(ListaPersonas);
+
+            return ListaPersonasDto;
+        }
+
+        public Personadto Update(Personadto personadto)
+        {
+            var Persona = Mapper.Map<Personadto, Persona>(personadto);
+
+            Persona= personaServicio.Update(Persona);
+
+            var Personadto = Mapper.Map<Persona, Personadto>(Persona);
+
+            return Personadto;
         }
     }
 }

@@ -10,5 +10,7 @@ namespace Servicio
     public interface IPersonaServicio
     {
         List<Personadto> ListTopPersonas();
+        bool Add(Personadto persona);
+        Personadto Update(Personadto persona);
     }
 }

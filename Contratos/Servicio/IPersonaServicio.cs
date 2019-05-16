@@ -11,5 +11,7 @@ namespace Contratos.Servicio
     {
 
         List<Persona> ListaTopPersona();
+        bool Add(Persona persona);
+        Persona Update(Persona persona);
     }
 }

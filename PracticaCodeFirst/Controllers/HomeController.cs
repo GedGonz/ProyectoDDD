@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using EntidadesDTO;
 namespace PracticaCodeFirst.Controllers
 {
     public class HomeController : Controller
@@ -20,9 +20,19 @@ namespace PracticaCodeFirst.Controllers
         public ActionResult Index()
         {
 
-           var ListaPersonasTop=IPersonaServicio.ListTopPersonas();
+           var Persona=IPersonaServicio.ListTopPersonas().FirstOrDefault();
 
-           return View();
+            //var Personadto = new Personadto() { Nombre="Pablo",Apellido="Escobar"};
+
+            //var retorno=IPersonaServicio.Add(Personadto);
+
+
+
+            Persona.Nombre = "Pedro";
+
+            var retorno = IPersonaServicio.Update(Persona);
+
+            return View();
         }
 
         public ActionResult About()

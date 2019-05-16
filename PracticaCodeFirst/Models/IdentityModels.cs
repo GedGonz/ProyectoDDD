@@ -30,6 +30,5 @@ namespace PracticaCodeFirst.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Persona> Persona { get; set; }
     }
 }
