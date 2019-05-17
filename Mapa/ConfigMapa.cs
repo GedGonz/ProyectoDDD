@@ -13,9 +13,14 @@ namespace Mapa
     {
         public ConfigMapaProfile()
         {
-            CreateMap<Persona, Personadto>();
+            CreateMap<Persona, Personadto>()
+            .ForMember(x=>x.PersonaId,y=>y.MapFrom(x=>x.PersonaId))
+            .ForMember(x => x.Nombre, y => y.MapFrom(x => x.Nombre));
 
             CreateMap<Personadto, Persona>();
+
+
+
         }
     }
 }

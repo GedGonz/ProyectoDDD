@@ -70,7 +70,7 @@ namespace PracticaCodeFirst
             //    ClientSecret = ""
             //});
 
-            //Mapping.InitialMapping();
+            Mapping.InitialMapping();
 
 
             var builder = new ContainerBuilder();

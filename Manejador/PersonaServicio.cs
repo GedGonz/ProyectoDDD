@@ -26,13 +26,37 @@ namespace Manejador
             
         }
 
+
+
+
+
+
+
         public List<Personadto> ListTopPersonas()
         {
             var ListaPersonas=personaServicio.ListaTopPersona();
-            var ListaPersonasDto=Mapper.Map<List<Persona>, List<Personadto>>(ListaPersonas);
 
-            return ListaPersonasDto;
+            var ListPersonasDto=Mapper.Map<List<Persona>,List<Personadto>> (ListaPersonas);
+
+            return ListPersonasDto;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public Personadto Update(Personadto personadto)
         {
